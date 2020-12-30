@@ -1,0 +1,53 @@
+{% load static %}
+
+{% url 'exercise:home' as home_url %}
+{% url 'exercise:contact'  as contact_url %}
+{% url 'products:product' as product_url %}
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+    <div class="container">
+        <!-- navbrand -->
+    <a class="navbar-brand" href="{{ home_url }}">
+        <img src="{% static 'food/images/logoruth.jpg' %}" alt="" width="50"
+                    height="50" class="d-inline-block align-top">
+        {% if brand_name %} {{ brand_name }} {% else %} Mpoyi's eCommerce {% endif %}    
+    </a>
+    <!-- end nav brand -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+        aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item ">
+                <a class="nav-link {% if active_link == 'index' %} active {% endif %}" href="{% url 'food:index' %}"  >Home <span class="sr-only">(current)</span></a>
+                
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link {% if active_link == 'pizza' %} active {% endif %}" href="{% url 'food:pizza' %}">Pizza </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link {% if active_link == 'burger' %} active {% endif %}" href="{% url 'food:burger' %}">Burgers</a>
+            </li>
+
+            <li class="nav-item ">
+                <a href="" class="nav-link"><img src="https://img.icons8.com/fluent/35/000000/shopping-cart-promotion.png"/><span id='cart'>0</span></a>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link " href="#">Logout</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link " href="#">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="#">Register</a>
+            </li>
+            {% endif %}
+        </ul>
+        {% include 'search/snippet/search-form.html' %}
+    </div>
+</div>
+</nav>

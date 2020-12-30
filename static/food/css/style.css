@@ -1,0 +1,23 @@
+.home{
+    position: absolute;
+    top: 0;/* here background will disapper*/
+    left: 0;
+    width: 100%;
+    height: 130vh;
+    background-image: url("../images/foodcover.jpg") ;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: -1; /* here back ground will come*/
+    
+}
+
+.title {
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+
+.picture img {
+    width: 300px;
+}

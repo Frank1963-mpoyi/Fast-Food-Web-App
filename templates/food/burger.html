@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+<!-- div for image below -->
+<!-- <div class="home"></div>  -->
+
+<style>
+    .picture{
+        width: 300px;
+        height: 400px;
+        border-radius: 50%;
+    }
+
+    
+</style>
+
+
+<div class="container-fluid">
+<div class="row text-center">
+    <div class="col-md-8">
+        <h2 class="title mb-5"> Burger </h2>
+        <div class="row">
+            
+            {% for obj in queryset %}
+            <div class="col-md-6 mb-3">
+                <img class="picture"  src="{{ obj.bImage }}" alt="">
+                <h4 class="pt-3">{{ obj.name }}</h4>
+                <div class="form-check-inline">
+                    <label class="form-check-label ">
+                        <input class="form-check-input" type="radio" checked>
+                        {{ obj.priceM }}
+                    </label>
+                </div>
+
+                <div class="form-check-inline">
+                    <label class="form-check-label">
+                        <input class="form-check-input " type="radio" >
+                        {{ obj.priceL }}
+                    </label>
+                </div>
+
+                <div>
+                    <button class="btn-info mt-3">Add to cart </button>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+    <div class="col-4">
+
+    </div>
+</div>
+</div>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
