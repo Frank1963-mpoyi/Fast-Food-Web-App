@@ -27,3 +27,10 @@ def pizza (request):
         'active_link':'pizza'
         }
     return render (request, template_name, context)
+
+
+def order (request):
+    template_name ='food/orders.html'
+    
+    context={'active_link':'orders'}
+    return render (request, template_name, context)

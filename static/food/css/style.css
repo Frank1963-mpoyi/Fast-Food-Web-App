@@ -21,3 +21,13 @@
 .picture img {
     width: 300px;
 }
+.orders {
+    position: relative;
+}
+/* .del {
+    position: absolute;
+    right: 20px;
+    background: red;
+    /* color: white; */
+    /* height: 30px; */
+/* }  */

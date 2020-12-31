@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
 
+
+
+{% block title %} Burger {% endblock title %}
 
 {% block content %}
 
@@ -9,8 +13,8 @@
 
 <style>
     .picture{
-        width: 300px;
-        height: 400px;
+        width: 200px;
+        height: 160px;
         border-radius: 50%;
     }
 
@@ -24,26 +28,26 @@
         <h2 class="title mb-5"> Burger </h2>
         <div class="row">
             
-            {% for obj in queryset %}
-            <div class="col-md-6 mb-3">
-                <img class="picture"  src="{{ obj.bImage }}" alt="">
-                <h4 class="pt-3">{{ obj.name }}</h4>
+            {% for burger in queryset %}
+            <div class="col-md-4 mb-3">
+                <img class="picture"  src="{{ burger.bImage }}" alt="">
+                <h4 class="pt-3" id="bur{{burger.id}}">{{ burger.name }}</h4>
                 <div class="form-check-inline">
                     <label class="form-check-label ">
-                        <input class="form-check-input" type="radio" checked>
-                        {{ obj.priceM }}
+                        <input class="form-check-input" type="radio" name="burger{{ burger.id }}" value="{{ burger.priceM }}" checked>
+                        {{ burger.priceM }}
                     </label>
                 </div>
 
                 <div class="form-check-inline">
                     <label class="form-check-label">
-                        <input class="form-check-input " type="radio" >
-                        {{ obj.priceL }}
+                        <input class="form-check-input " type="radio" name="burger{{ burger.id }}" value="{{burger.priceL }}">
+                        {{ burger.priceL }}
                     </label>
                 </div>
 
                 <div>
-                    <button class="btn-info mt-3">Add to cart </button>
+                    <button class="btn-info mt-3" onclick="addBurger('{{ burger.id }}')">Add to cart </button>
                 </div>
 
             </div>
@@ -51,12 +55,17 @@
         </div>
 
     </div>
-    <div class="col-4">
-
+    <div class="col-4 orders">
+        <div class='bg-dark text-light p-2 rounded'>
+            <h2 class="text-center">Order List</h2>
+            <ul id="bcart"></ul>
+            <h4 class="text-right" id="btotal">Total: 0 $</h4>
+        </div>
     </div>
 </div>
 </div>
 
+<script src="{% static 'food/js/burgers.js' %}"></script>
 
 {% endblock %}
 

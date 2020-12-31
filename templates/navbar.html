@@ -32,7 +32,9 @@
             </li>
 
             <li class="nav-item ">
-                <a href="" class="nav-link"><img src="https://img.icons8.com/fluent/35/000000/shopping-cart-promotion.png"/><span id='cart'>0</span></a>
+                <!-- put the link of the orders in by shoping cart  -->
+                <a href="{% url 'food:order' %}" class="nav-link {% if active_link == 'orders' %} active {% endif %}" >
+                    <img src="https://img.icons8.com/fluent/35/000000/shopping-cart-promotion.png"/><span id="cart"></span></a>
             </li>
             {% if request.user.is_authenticated %}
             <li class="nav-item">
@@ -40,7 +42,7 @@
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link " href="#">Login</a>
+                <a class="nav-link " href="#"><img src="https://img.icons8.com/office/16/000000/change-user-male--v1.png"/>Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="#">Register</a>
