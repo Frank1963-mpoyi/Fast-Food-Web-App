@@ -1,1 +1,1 @@
-web: gunicorn config.wsgi
+web: gunicorn FAST-FOOD-WEB-APP.wsgi
