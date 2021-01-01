@@ -1,20 +1,30 @@
 
 import os
+# import configparser
+# from pathlib     import Path
+from decouple   import config # is working with secret key
+import django_heroku
+
+
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(
+    os.path.dirname(
+        os.path.dirname(
+            os.path.abspath(__file__)
+            )
+        )
+    )
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '1hqd3$vl&wf+fg-tfthkk5o)dhr63^3cz+#2486u6t&^o*dh(y'
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ruthmitongorestaurant.herokuapp.com']
 
 
 # Application definition
@@ -42,6 +52,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Whitenoise
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -131,7 +144,7 @@ STATICFILES_DIRS =[
 
 
 MEDIA_URL='/media/' 
-MEDIA_ROOT= os.path.join(BASE_DIR, 'assets/static/media') 
+MEDIA_ROOT= os.path.join(BASE_DIR, 'assets/static/media')# for production 
 
 #CRISPY_TEMPLATE_PACK ='bootstrap4'
 #LOGIN_REDIRECT_URL = 'home_view' 
@@ -155,5 +168,8 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'assets/static/media')
 
 
 
+#white Noise
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+django_heroku.settings(locals())# need to import this package
 
