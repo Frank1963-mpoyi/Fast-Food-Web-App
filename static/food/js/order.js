@@ -12,7 +12,7 @@ function addPizza(pid){
     var pri = document.getElementsByName(radio);
     var size, price;
     
-    if (pri[0].checked) {
+    if  (pri[0].checked) {
         price = pri[0].value;
         size = 'M';
     }
@@ -21,13 +21,6 @@ function addPizza(pid){
         size = 'L';
     }
 
-//     pcart.innerHTML += '<li>'+ name + ''+ size + ':' +price+'$</li>';
-
-
-// }
-
-
-    
     //orders to store  
     var orders = JSON.parse(localStorage.getItem('orders'));
     var total =localStorage.getItem('total');
@@ -37,7 +30,7 @@ function addPizza(pid){
     localStorage.setItem('orders',JSON.stringify(orders));
     
 
-    total = Number(total) + Number(price);
+    total = Number(total) + Number(price);// conver string to a
     localStorage.setItem('total', total);
 
     //Updating number of items in shopping Cart
