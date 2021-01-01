@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     
     #Project Apps
     'food',
+    'AjaxProject',
+    'crispy_forms',
 ]
 
 
@@ -61,6 +63,13 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+
+
+#crispy
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
 
 
 # Database

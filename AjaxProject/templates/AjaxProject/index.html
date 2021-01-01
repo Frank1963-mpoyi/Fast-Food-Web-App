@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %} Ajax Form {% endblock title %}
+
+
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'ajax/css/style.css' %}">
+
+
+<div class="container">
+<h1>AJAX</h1>
+<div id="alert-box"></div>
+<div id="img-box"></div>
+
+
+<form  id="p-form">
+    {% csrf_token %}
+    
+    {{form|crispy}}
+
+</form>
+
+<button class="btn btn-primary" type="submit">Submit</button>
+</div>
+
+
+
+<script src="{% static 'ajax/js/main.js' %}"></script>
+{% endblock content %}

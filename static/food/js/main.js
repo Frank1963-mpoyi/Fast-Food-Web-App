@@ -1,14 +1,16 @@
-var hours = 24;
-var now = new Date().getTime();
-var stepTime = localStorage.getItem('stepTime');
+//we use location storage to store data of the browser of the user 
+var hours = 24; // local storage dont have an expiration date expiration date
+var now = new Date().getTime();// get time when the user visite the application
+var stepTime = localStorage.getItem('stepTime');// to check if the user visite the website in last 24 hours
 
-if (stepTime == null) {
-    localStorage.setItem('stepTime', now);
+
+if (stepTime == null) {// stepTime  is equal null which mean there is no stepTime store in our storage and it is the first time the user visite our website
+    localStorage.setItem('stepTime', now);// and we wil store the variable now in the browser of the user Note: variable now is on top 
 }
 else {
-    if (now - stepTime > hours*60*60*1000) {
-        localStorage.clear();
-        localStorage.setItem('stepTime', now);
+    if (now - stepTime > hours*60*60*1000) {// if the user has visited the webapplication before, (if the different the last time he visited - and the time now) > is more than 24Hrs or hours*60*60*1000 the same as 24Hrs
+        localStorage.clear(); // we will clear all data store in the browser of the user
+        localStorage.setItem('stepTime', now); // and we will set stepTime now , like the time retart again the process
     }
 }
 

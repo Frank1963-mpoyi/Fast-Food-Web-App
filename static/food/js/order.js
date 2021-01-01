@@ -2,8 +2,8 @@ var pcart = document.querySelector('#pcart'); //variable for pcart
 var ptotal = document.querySelector('#ptotal');
 
 // add Pizza
-
-function addPizza(pid){ // will take argument id of pizza
+// will take argument id of pizza
+function addPizza(pid){ 
     // get pizza name
     pizzaId = '#piz' + pid;
     var name = document.querySelector(pizzaId).innerHTML;
@@ -11,20 +11,24 @@ function addPizza(pid){ // will take argument id of pizza
     var radio = 'pizza' +  pid;
     var pri = document.getElementsByName(radio);
     var size, price;
-    // var size, price;
-    // price = pri[0].value;
-    // size ='M';
     
-
     if (pri[0].checked) {
-        price = pri[0].Value;
+        price = pri[0].value;
         size = 'M';
     }
     else {
         price = pri[1].value; 
         size = 'L';
     }
+
+//     pcart.innerHTML += '<li>'+ name + ''+ size + ':' +price+'$</li>';
+
+
+// }
+
+
     
+    //orders to store  
     var orders = JSON.parse(localStorage.getItem('orders'));
     var total =localStorage.getItem('total');
     var cartSize = orders.length;
@@ -40,13 +44,12 @@ function addPizza(pid){ // will take argument id of pizza
     var cart = document.querySelector('#cart');
     cart.innerHTML =orders.length;
 
-    butto = '<div class="del" onclick="removePizza('+ cartsize +')"> X </div>'
+    butto = '<div class="del" onclick="removePizza('+ cartSize +')"> X </div>'
     ptotal.innerHTML = "Total: " + total + ' $';
 
 
     pcart.innerHTML += '<li>'+ name +  ' ' + size +  ': ' + price +  ' $' + butto+  '</li>'; 
-    // pcart.innerHTML += '<li>'+ name +  ' ' + size +  ': ' + price +  ' $</li>'; 
-    //must add a new pizza when we call it
+    
 }
 
 function pshoppingCart() {
