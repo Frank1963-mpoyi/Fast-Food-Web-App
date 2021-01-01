@@ -1,1 +1,1 @@
-web: gunicorn FAST-FOOD-WEB-APP.wsgi
+web: gunicorn config.wsgi --log-file -
