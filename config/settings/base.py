@@ -3,7 +3,7 @@ import os
 # import configparser
 # from pathlib     import Path
 from decouple   import config # is working with secret key
-# import django_heroku
+import django_heroku
 
 
 
@@ -174,5 +174,5 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'assets/static/media')# for production
 #white Noise
 # STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# django_heroku.settings(locals())# need to import this package
+django_heroku.settings(locals())# need to import this package
 
