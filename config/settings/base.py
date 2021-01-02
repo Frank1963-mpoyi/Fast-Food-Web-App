@@ -3,7 +3,7 @@ import os
 # import configparser
 # from pathlib     import Path
 from decouple   import config # is working with secret key
-import django_heroku
+# import django_heroku
 
 
 
@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     # Whitenoise
-    'whitenoise.middleware.WhiteNoiseMiddleware',
+    # 'whitenoise.middleware.WhiteNoiseMiddleware',
     # i put second bcz it must run first before others
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -172,7 +172,7 @@ MEDIA_ROOT= os.path.join(BASE_DIR, 'assets/static/media')# for production
 
 
 #white Noise
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-django_heroku.settings(locals())# need to import this package
+# django_heroku.settings(locals())# need to import this package
 
