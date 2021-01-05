@@ -40,16 +40,21 @@
                     <img src="https://img.icons8.com/fluent/35/000000/shopping-cart-promotion.png"/><span id="cart"></span></a>
             </li>
             {% if request.user.is_authenticated %}
-                <p class="text-light pt-2 pr-4 "> Welcome {{user.username}}</p>
             <li class="nav-item">
-                <a class="nav-link " href="#">Logout</a>
+                <h5 class="text-light pt-2 pr-4 "> Welcome {{user.username}}</h5>
+            </li>
+            {% endif %}
+
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link " href="{% url 'users:logout' %}">Logout</a>
             </li>
             {% else %}
             <li class="nav-item">
                 <a class="nav-link  {% if active_link == 'login' %} active {% endif %}"   href="{% url 'users:login' %}" href="#">Login</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link " href="#">Register</a>
+                <a class="nav-link " href="{% url 'users:signup' %}">Register</a>
             </li>
         
             {% endif %}

@@ -12,8 +12,8 @@
 <div class="container-fluid p-5">
         <div class="row">
             <div class="col-md-3"> </div><!--first grid-->
-            <div class="col-md-6 p-5 bg-dark text-light text-center">
-                <h3> Sign Up</h3>
+            <div class="col-md-6 p-2 bg-dark text-light text-center">
+                <h4> REGISTER ACCOUNT</h4>
                 <form action="" method="POST" novalidate>
                     {% csrf_token %}
 
@@ -25,9 +25,9 @@
                         <div><!--2nd div-->
                             {{field}}
                         </div>
-                        {% if field.help_text %}<!--text below the field-->
-                            <small style="color:grey">{{ field.help_text}}</small>
-                        {% endif %} 
+                        <!-- {% if field.help_text %}
+                            <small style="color:grey">{{ field.help_text}}</small> 
+                            {% endif %}  -->
                     </div>
                     {% endfor %}
                     <div>
@@ -37,7 +37,14 @@
                     </div>
                     <button type="submit" class="btn-info">Submit </button>
                 </form>
+                <div class="mt-4">
+                    <div class="d-flex justify-content-center links">
+                        Already have an account? <a href="{% url 'users:login' %}"
+                            class="ml-2"> Login</a>                    
+                    </div>
+                </div>
             </div>
+           
             <div class="col-md-3">
 
             </div>

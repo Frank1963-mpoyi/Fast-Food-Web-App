@@ -13,7 +13,7 @@
         <div class="row">
             <div class="col-md-3"> </div><!--first grid-->
             <div class="col-md-6 p-5 bg-dark text-light text-center">
-                <h3> Login </h3>
+                <h3> LOGIN </h3>
                 <form action="" method="POST" novalidate>
                     {% csrf_token %}
 
@@ -37,6 +37,12 @@
                     </ul>
                     {% endif %}
                 </form>
+                <div class="mt-4">
+                    <div class="d-flex justify-content-center links">
+                        Don't have an account? <a href="{% url 'users:signup' %}" class="ml-2">Sign Up</a>
+
+                    </div>
+                </div>
 
                 
             </div>
