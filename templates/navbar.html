@@ -30,19 +30,23 @@
             <li class="nav-item ">
                 <a class="nav-link {% if active_link == 'burger' %} active {% endif %}" href="{% url 'food:burger' %}">Burgers</a>
             </li>
+        </ul>
 
+            <!-- put this part of navbar at the right handside -->
+        <ul class="navbar-nav ml-auto">
             <li class="nav-item ">
                 <!-- put the link of the orders in by shoping cart  -->
                 <a href="{% url 'food:order' %}" class="nav-link {% if active_link == 'orders' %} active {% endif %}" >
                     <img src="https://img.icons8.com/fluent/35/000000/shopping-cart-promotion.png"/><span id="cart"></span></a>
             </li>
             {% if request.user.is_authenticated %}
+                <p class="text-light pt-2 pr-4 "> Welcome {{user.username}}</p>
             <li class="nav-item">
                 <a class="nav-link " href="#">Logout</a>
             </li>
             {% else %}
             <li class="nav-item">
-                <a class="nav-link " href="#">Login</a>
+                <a class="nav-link  {% if active_link == 'login' %} active {% endif %}"   href="{% url 'users:login' %}" href="#">Login</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link " href="#">Register</a>
