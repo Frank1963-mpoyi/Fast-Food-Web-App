@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     #Project Apps
     'food',
     'AjaxProject',
+    'users',
+    
+    # 3rd party
     'crispy_forms',
 ]
 

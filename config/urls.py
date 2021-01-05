@@ -4,10 +4,9 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include ('food.urls', namespace='food')),
-    path('', include ('AjaxProject.urls', namespace='AjaxProject')),
-    
-    #path('', include ('autenticate.apps.system.users.urls')),
+    path('', include ('users.urls',       namespace='users'         )),
+    path('', include ('food.urls',        namespace='food'          )),
+    path('', include ('AjaxProject.urls', namespace='AjaxProject'   )),   
     path('admin/', admin.site.urls),
 ]
 
